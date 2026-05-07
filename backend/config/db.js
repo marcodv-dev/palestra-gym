@@ -48,13 +48,16 @@ export const initSchema = async () => {
     await conn.query(`
       CREATE TABLE IF NOT EXISTS users (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        username VARCHAR(100) NOT NULL UNIQUE,
+        username VARCHAR(100),
         email VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
       )
     `);
+    try { await conn.query('ALTER TABLE users MODIFY username VARCHAR(100)'); } catch (_) {}
+    try { await conn.query('DROP INDEX username ON users'); } catch (_) {}
+    try { await conn.query('DROP INDEX username_2 ON users'); } catch (_) {}
     await conn.query(`
       CREATE TABLE IF NOT EXISTS types (
         id INT PRIMARY KEY AUTO_INCREMENT,

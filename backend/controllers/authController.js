@@ -22,8 +22,8 @@ export const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const [result] = await pool.query(
-      'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
-      [email.split('@')[0], email, hashedPassword]
+      'INSERT INTO users (email, password) VALUES (?, ?)',
+      [email, hashedPassword]
     );
 
     const token = jwt.sign(
@@ -67,14 +67,14 @@ export const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, username: user.username },
+      { id: user.id, email: user.email },
       process.env.JWT_SECRET || 'secret',
       { expiresIn: '7d' }
     );
 
     res.json({
       token,
-      user: { id: user.id, username: user.username, email: user.email }
+      user: { id: user.id, email: user.email }
     });
   } catch (err) {
     console.error('Login error:', err);
