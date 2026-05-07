@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS gym_db;
-USE gym_db;
+CREATE DATABASE IF NOT EXISTS defaultdb;
+USE defaultdb;
 
 -- Tabella utenti
 CREATE TABLE users (
