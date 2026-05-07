@@ -1,0 +1,804 @@
+
+.header{
+  z-index: 2;
+  font-family: "Audiowide", sans-serif;
+  border-bottom: 0.5px solid var(--border-color);
+  background-color: var(--card-bg);
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  label{
+    font-size: 30px;
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.pages{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+}
+.main{
+    flex: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 0;
+    overflow-y: auto;
+}
+.allenamentoButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 50px 50px;
+    flex: 1;
+}
+.tipoAllenamentoButton{
+    padding: 20px;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    outline: none;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    border-radius: 2em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    >label{
+        font-family: "Audiowide", sans-serif;
+        margin: auto;
+        text-transform: capitalize;
+        color: var(--text-primary);
+        font-size: 20px;
+    }
+    >img{
+        margin: auto;
+        width: 25px;
+    }
+}
+
+.footer{
+    z-index: 10;
+    background-color: var(--card-bg);
+    position: relative;
+    flex: 0.1;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 0.5px solid var(--border-color);
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.3);
+}
+.footerButton{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    background: none;
+    border-radius: 0;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    flex: 1;
+    border: none;
+    img{
+        height: auto;
+        width: 30px;
+        margin: auto;
+    }
+    label{
+        margin: auto;
+        color: var(--text-primary);
+        width: 100%;
+    }
+}
+
+.menuContainer{
+    height: 100dvh;
+    width: 100dvw;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+}
+.menuSfondo{
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+}
+.menu{
+    background-color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0 0 0 auto;
+    padding: 100px 20px 0px;
+    position: relative;
+    right: -400px;
+}
+.langSelect{
+    outline: none;
+    background: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.logout{
+    margin: 20px 0 20px 0;
+    text-align: start;
+    border: none;
+    border-radius: 0.5em;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    >img{
+        width: 20px;
+        margin: auto 0;
+        filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(7480%) hue-rotate(356deg) brightness(95%) contrast(115%);
+    }
+}
+
+.homeButton,.backButton,.binButton,.settingsButton,.closeButton{
+    position: absolute;
+    display: flex;
+    outline: none;
+    background: none;
+    border: none;
+    border-radius: 0;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    img{
+        height: auto;
+        margin: auto;
+    }
+}
+.closeButton{
+    top: 25px;
+    right: 25px;
+    img{
+        width: 30px;
+    }
+}
+.settingsButton{
+    top: 15px;
+    right: 20px;
+    img{
+        width: 40px;
+    }
+}
+.homeButton{
+    top: 15px;
+    left: 20px;
+    img{
+        width: 40px;
+    }
+}
+.backButton{
+    top: 15px;
+    left: 15px;
+    img{
+        width: 40px;
+    }
+}
+.binButton{
+    top: 15px;
+    right: 15px;
+    img{
+        width: 40px;
+    }
+}
+.mainProgram{
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--bg-secondary);
+}
+.title{
+    font-size: 24px;
+    margin: 0 5%;
+    font-family: "Audiowide", sans-serif;
+    text-transform: capitalize;
+}
+.searchContainer{
+    display: flex;
+    align-items: center;
+    margin: 0 5%;
+    position: relative;
+}
+.searchInput{
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border-radius: 1em;
+    background-color: var(--button-primary);
+    color: var(--text-primary);
+}
+.clearSearch{
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #999;
+    -webkit-tap-highlight-color: transparent;
+}
+.esercizio{
+    margin: 0 5%;
+    border: 1px solid transparent;
+    border-radius: 1em;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    >.esercizioButton{
+        all: unset;
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        >label{
+            font-family: "Audiowide", sans-serif;
+            text-transform: capitalize;
+            font-size: 18px;
+            width: 45%;
+            overflow-wrap: break-word;
+        }
+        .dettagliEsercizio{
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            width: 55%;
+        }
+    }
+}
+.done{
+    width: 60px;
+    aspect-ratio: 1;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    border: 1px solid transparent;
+    background: none;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    border-radius: 5em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    img{
+        height: 40px;
+        width: 40px;
+        margin: auto;
+         
+    }
+}
+.done.yes{
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    border: none;
+    >img{
+        filter: invert(1);
+    }
+}
+.div_drag{
+    width: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    margin-left: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+.drag{
+    width: 100%;
+    height: 2px;
+    border-radius: 50em;
+    background-color: var(--text-primary);
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+.fondo{
+    width: 100%;
+    height: 10px;
+    position: fixed;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+.addButton{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    border: none;
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    border-radius: 5em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    img{
+        height: auto;
+        width: 30px;
+        margin: auto;
+        filter: invert(1);
+    }
+}
+
+.mainAdd{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: auto;
+    min-height: 500px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    margin: 0 auto 0;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--bg-secondary);
+    >input{
+        width: 60%;
+        margin: auto;
+        padding: 12px 15px 12px 15px;
+        border-radius: 1em;
+        background-color: var(--card-bg);
+    }
+}
+.aggiungiButton{
+    padding: 15px;
+    margin: 20px 12% 5%;
+    display: flex;
+    outline: none;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    border-radius: 10em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    >label{
+        font-family: "Audiowide", sans-serif;
+        margin: auto;
+        text-transform: capitalize;
+        color: var(--text-primary);
+        font-size: 18px;
+    }
+}
+.buttonsMod{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10% 5% 40px;
+}
+.modificaButton{
+    padding: 15px;
+    display: flex;
+    outline: none;
+    border-radius: 10em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    >label{
+        font-family: "Audiowide", sans-serif;
+        margin: auto;
+        text-transform: capitalize;
+        color: var(--button-primary);
+        font-size: 18px;
+    }
+}
+.modificaButton.elimina{
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    padding: 10px;
+    >img{
+        height: auto;
+        width: 35px;
+    }
+}
+.aggiungiButton.disabled{
+    opacity: 0.5;
+}
+.aggiungiButton.disabled:active{
+    transform: scale(1);
+}
+
+.completatoButton{
+    padding: 15px;
+    margin: 20px 12% 10%;
+    display: flex;
+    outline: none;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    border-radius: 10em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    >label{
+        font-family: "Audiowide", sans-serif;
+        margin: auto;
+        text-transform: capitalize;
+        color: var(--text-primary);
+        font-size: 18px;
+    }
+}
+.completatoButton.true{
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    border: none;
+    >*{color: var(--button-primary);}
+}
+
+.exportPage{
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 20px;
+    max-width: 400px;
+}
+.buttonFiles{
+    width: 100%;
+    aspect-ratio: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+    outline: none;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    border-radius: 3em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    img{
+        width: 20%;
+        margin: 0 auto;
+    }
+    label{
+        color: var(--text-primary);
+        font-size: 12px;
+    }
+}
+
+.view{
+    flex: 1;
+    overflow: auto;
+    padding: 20px 0;
+}
+.viewPage{
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+.singleTrain{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.subTitleTrain{
+    font-size: 20px;
+    margin: 0 5% 10px;
+    text-align: center;
+    font-family: "Audiowide", sans-serif;
+    text-transform: capitalize;
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    border: none;
+    color: var(--button-primary);
+    border-radius: 0.2em;
+}
+.singleEx{
+    margin: 5px 5%;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    >label{
+        font-family: "Audiowide", sans-serif;
+        font-size: 18px;
+        text-transform: capitalize;
+    }
+    .dettagliEx{
+        display: flex;
+        justify-content: space-between;
+        >*{
+            width: 30%;
+        }
+    }
+}
+
+.statsPage{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 20px 0;
+    gap: 20px;
+}
+.statsCards{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 5%;
+}
+.statCard{
+    border-radius: 1em;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(to right, var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    >label:first-child{
+        font-size: 16px;
+        color: var(--text-primary);
+        margin: auto 0;
+    }
+    >label:last-child{
+        font-size: 24px;
+        font-weight: 700;
+        font-family: "Audiowide", sans-serif;
+        background: linear-gradient(to left, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+}
+.graph{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 100%;
+}
+.div_graph{
+    display: flex;
+    margin: 20px 5% 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 1em;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+}
+.graphMonthScroll{
+    padding-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    padding: 20px 20px 20px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+.scale{
+    display: flex;
+    margin-top: 14px;
+    height: calc(100px + 10px);
+    padding: 0 5px 0 10px;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    color: var(--text-primary);
+    font-size: 12px;
+    >*{
+        padding: 0;
+        margin: 0;
+        line-height: 1;
+    }
+}
+.perMonth{
+    display: flex;
+    flex-direction: column;
+}
+.periodoGraph{
+    margin: auto;
+}
+.countPossible{
+    width: 30%;
+    height: 100px;
+    background-color: lightgrey;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+    margin: 0 auto;
+    display: flex;
+}
+.count{
+    width: 100%;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+    margin: auto auto 0;
+}
+
+input{
+    font-size: 16px;
+    border: none;
+    background-color: rgb(247, 247, 247);
+    outline: none;
+    padding: 5px 20px;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0.2em;
+}
+.tipoAllenamentoButton:active,
+.aggiungiButton:active,
+.modificaButton:active,
+.done:active,
+.completatoButton:active,
+.buttonFiles:active,
+.logout:active,
+.button_aut:active,.button_aut_nav:active{
+    transform: scale(0.9);
+}
+.addButton:active{
+    transform: translateX(-52.5%) scale(0.9);
+}
+@media (hover: hover) {
+  .tipoAllenamentoButton:hover,
+  .aggiungiButton:hover,.modificaButton:hover,.done:hover,
+  .completatoButton:hover,.buttonFiles:hover,.logout:hover,
+  .button_aut:hover, .button_aut_nav:hover{
+    transform: scale(1.05);
+  }
+  .aggiungiButton.disabled:hover{
+    transform: scale(1);
+  }
+  .addButton:hover{
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+.Toastify__toast-container--top-center {
+  top: 60px;
+}
+
+@media (min-width: 800px) {
+    .exportPage{
+        flex-direction: row;
+        margin: auto;
+        max-width: none;
+    }
+}
+
+
+.container_aut{
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    background-color: var(--bg-secondary); 
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    max-width: 600px;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    border-radius: 1em;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    gap: 20px;
+}
+.title-aut{
+    font-size: 30px;
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-family: "Audiowide", sans-serif;
+    text-transform: uppercase;
+    margin: auto;
+}
+.subtitle{
+    font-size: 18px;
+    font-family: "Audiowide", sans-serif;
+}
+.form-aut{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    >input{
+        width: 80%;
+        margin: auto;
+        padding: 12px 15px 12px 15px;
+        border: 1px solid transparent;
+        border-radius: 1em;
+        background-color: var(--card-bg);
+        font-family: 'Nunito', sans-serif;
+    }
+    .error{
+        color: red;
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .button_aut{
+        padding: 15px;
+        margin: 20px 20% 0%;
+        outline: none;
+        border: 1px solid transparent;
+        background: linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+        border-radius: 10em;
+        transition: 0.2s all ease;
+        -webkit-tap-highlight-color: transparent;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+        font-family: "Audiowide", sans-serif;
+        text-transform: capitalize;
+        color: var(--button-primary);
+        font-size: 18px;
+    }
+}
+.button_aut_nav{
+    padding: 02px;
+    margin: 0px 25% 5%;
+    outline: none;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--button-primary), var(--button-primary)) padding-box,
+        linear-gradient(to left, var(--accent), var(--accent2)) border-box;
+    border-radius: 10em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--text-primary);
+    font-size: 14px;
+}
