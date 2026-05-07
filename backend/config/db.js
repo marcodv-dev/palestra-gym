@@ -26,11 +26,9 @@ const dbConfig = () => {
 };
 
 const config = dbConfig();
-const pool = config.uri
+export const pool = config.uri
   ? mysql.createPool(config.uri)
   : mysql.createPool(config);
-
-export const pool = pool;
 
 export const testConnection = async () => {
   try {
