@@ -37,8 +37,6 @@ export default function Register() {
         <label className="title-aut">{t('appTitle') || 'Gym'}</label>
         <label className="subtitle">{t('register') || 'Registrati'}</label>
 
-        {error && <div className="error">{error}</div>}
-
         <form onSubmit={handleSubmit} className="form-aut">
           <input
             type="email"
@@ -58,6 +56,8 @@ export default function Register() {
             required
             minLength={6}
           />
+
+          {error && <div className="error">{error}</div>}
 
           <button
             type="submit"
