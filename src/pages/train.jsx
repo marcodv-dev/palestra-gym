@@ -149,7 +149,7 @@ const Lower =()=>{
                 exit={{ opacity: 0}}
                 transition={{ duration: 0.2 }}
             >
-                {loading ? <div className="spinner" style={{margin:'40px auto'}} /> : <>
+                {loading ? <div className="spinner" style={{margin:'auto'}} /> : <>
                 <label htmlFor="" className='title'>{type?.name || type}</label>
 
                 <div className="searchContainer">
