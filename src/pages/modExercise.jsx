@@ -34,7 +34,6 @@ const ModExercise =()=>{
         navigate(-1);
     };
 
-  if (!exercise) return <div className="spinner" style={{margin:'auto'}} />;
     return(
         <main style={{display:'flex',flexDirection:'column',height:'100dvh'}}>
             <header className="header">
@@ -58,6 +57,7 @@ const ModExercise =()=>{
                 exit={{ opacity: 0}}
                 transition={{ duration: 0.2 }}
             >
+                {!exercise ? <div className="spinner" style={{margin:'auto'}} /> : <>
                 <input
                     style={{color: 'var(--text-primary)'}}
                     value={exercise.name}
@@ -93,6 +93,7 @@ const ModExercise =()=>{
                         <label htmlFor="">{t('confermaModifica')}</label>
                     </button>
                 </div>
+                </>}
             </motion.div>
         </main>
     );
