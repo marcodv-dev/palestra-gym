@@ -53,7 +53,7 @@ const ViewTrain =()=>{
             >
                 <label style={{marginTop:'20px'}} htmlFor="" className='title'>{t('train')}</label>
 
-                {loading ? <div className="spinner" style={{margin:'40px auto'}} /> :
+                {loading ? <div className="spinner" style={{margin:'auto'}} /> :
                 <div className="currentTrain">
                     {exercisesByType.map(({ type, exercises }) => (
                         <div key={type.id} className="singleTrain">

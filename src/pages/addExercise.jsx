@@ -100,7 +100,7 @@ const AddExercise =()=>{
                 exit={{ opacity: 0}}
                 transition={{ duration: 0.2 }}
             >
-                {loadingTypes ? <div className="spinner" style={{margin:'40px auto'}} /> : <>
+                {loadingTypes ? <div className="spinner" style={{margin:'auto'}} /> : <>
                 <input
                     type="text"
                     name="type"

@@ -149,7 +149,7 @@ const Dashboard =({page,setPage})=>{
                     exit={{ opacity: 0}}
                     transition={{ duration: 0.2 }}
                 >
-                {loading ? <div className="spinner" style={{margin:'40px auto'}} /> :
+                {loading ? <div className="spinner" style={{margin:'auto'}} /> :
                 <div className='allenamentoButtons'>
                     {types.map((t)=>(
                         <button key={t.id} onClick={()=>navigate(`/train`,{state:{type:t}})} className='tipoAllenamentoButton'>
