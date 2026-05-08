@@ -45,6 +45,7 @@ export default function Register() {
             onChange={e => setEmail(e.target.value)}
             className="input"
             required
+            style={{border:`${error?'1px solid red':null}`}}
           />
 
           <input
@@ -55,6 +56,7 @@ export default function Register() {
             className="input"
             required
             minLength={6}
+            style={{border:`${error?'1px solid red':null}`}}
           />
 
           {error && <div className="error">{error}</div>}
