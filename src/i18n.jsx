@@ -48,7 +48,8 @@ const translations = {
     noAccount: "Non hai un account?",
     hasAccount: "Hai già un account?",
     appTitle: 'Gym',
-    logout: 'Esci'
+    logout: 'Esci',
+    allenamentoCompletato: 'Allenamento completato'
   },
   en: {
     tipo: 'Type',
@@ -97,7 +98,8 @@ const translations = {
     noAccount: "Don't have an account?",
     hasAccount: "Already have an account?",
     appTitle: 'Gym',
-    logout: 'Logout'
+    logout: 'Logout',
+    allenamentoCompletato: 'Workout completed'
   }
 };
 
