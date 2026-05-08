@@ -9,8 +9,10 @@ const ViewTrain =()=>{
     const navigate = useNavigate();
     const { t } = useLang();
     const [exercisesByType, setExercisesByType] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true);
         getTypes().then(async (types) => {
             const data = await Promise.all(
                 types.map(async (type) => {
@@ -19,6 +21,7 @@ const ViewTrain =()=>{
                 })
             );
             setExercisesByType(data);
+            setLoading(false);
         });
     }, []);
 
@@ -50,6 +53,7 @@ const ViewTrain =()=>{
             >
                 <label style={{marginTop:'20px'}} htmlFor="" className='title'>{t('train')}</label>
 
+                {loading ? <div className="spinner" style={{margin:'40px auto'}} /> :
                 <div className="currentTrain">
                     {exercisesByType.map(({ type, exercises }) => (
                         <div key={type.id} className="singleTrain">
@@ -66,7 +70,7 @@ const ViewTrain =()=>{
                             </div>))}
                         </div>
                     ))}
-                </div>
+                </div>}
             </motion.div>
         </main>
     );

@@ -18,9 +18,13 @@ const AddExercise =()=>{
     const [sets, setSets] = useState('');
     const [peso, setPeso] = useState('');
     const [types, setTypes] = useState([]);
+    const [loadingTypes, setLoadingTypes] = useState(true);
 
     useEffect(() => {
-        getTypes().then(setTypes);
+        getTypes().then(data => {
+            setTypes(data);
+            setLoadingTypes(false);
+        });
     }, []);
 
     const addExercise = async () => {
@@ -96,6 +100,7 @@ const AddExercise =()=>{
                 exit={{ opacity: 0}}
                 transition={{ duration: 0.2 }}
             >
+                {loadingTypes ? <div className="spinner" style={{margin:'40px auto'}} /> : <>
                 <input
                     type="text"
                     name="type"
@@ -125,6 +130,7 @@ const AddExercise =()=>{
                 <button className={`aggiungiButton ${(!type || !name || !reps || !sets || !peso)?'disabled':null}`} disabled={!type || !name || !reps || !sets || !peso} onClick={addExercise}>
                     <label htmlFor="">{t('aggiungiEsercizio')}</label>
                 </button>
+                </>}
             </motion.div>
         </main>
     );

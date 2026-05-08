@@ -23,6 +23,7 @@ const Dashboard =({page,setPage})=>{
     const [types, setTypes] = useState([]);
     const [showMenu, setShowMenu] = useState(false);
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (!isAuthenticated()) {
@@ -34,6 +35,7 @@ const Dashboard =({page,setPage})=>{
 
     const loadTypes = async () => {
         try {
+            setLoading(true);
             setError('');
             const data = await getTypes();
             setTypes(Array.isArray(data) ? data : []);
@@ -41,6 +43,8 @@ const Dashboard =({page,setPage})=>{
             console.error('Error loading types:', err);
             setError(err.message);
             setTypes([]);
+        } finally {
+            setLoading(false);
         }
     };
     
@@ -145,6 +149,7 @@ const Dashboard =({page,setPage})=>{
                     exit={{ opacity: 0}}
                     transition={{ duration: 0.2 }}
                 >
+                {loading ? <div className="spinner" style={{margin:'40px auto'}} /> :
                 <div className='allenamentoButtons'>
                     {types.map((t)=>(
                         <button key={t.id} onClick={()=>navigate(`/train`,{state:{type:t}})} className='tipoAllenamentoButton'>
@@ -154,7 +159,8 @@ const Dashboard =({page,setPage})=>{
                     <button onClick={()=>navigate('/addExercise')} className='tipoAllenamentoButton'>
                         <img src={add} alt="" className='invert-dark'/>
                     </button>
-                </div></motion.div>}
+                </div>}
+                </motion.div>}
 
                 {page=='export'&&
                 <motion.div

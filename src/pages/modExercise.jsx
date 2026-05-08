@@ -34,7 +34,7 @@ const ModExercise =()=>{
         navigate(-1);
     };
 
-  if (!exercise) return <p>{t('caricamento')}</p>;
+  if (!exercise) return <div className="spinner" style={{margin:'40px auto'}} />;
     return(
         <main style={{display:'flex',flexDirection:'column',height:'100dvh'}}>
             <header className="header">

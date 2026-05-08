@@ -69,6 +69,7 @@ const Lower =()=>{
     const type = location.state?.type;
     const [exercises, setExercises] = useState([]);
     const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(true);
 
     const sensors = useSensors(
         useSensor(PointerSensor, { activationConstraint: { distance: 10 } }),
@@ -81,7 +82,11 @@ const Lower =()=>{
 
     useEffect(() => {
         if (type?.id) {
-            getExercisesOfType(type.id).then(setExercises);
+            setLoading(true);
+            getExercisesOfType(type.id).then(data => {
+                setExercises(data);
+                setLoading(false);
+            });
         }
     }, [type]);
 
@@ -144,6 +149,7 @@ const Lower =()=>{
                 exit={{ opacity: 0}}
                 transition={{ duration: 0.2 }}
             >
+                {loading ? <div className="spinner" style={{margin:'40px auto'}} /> : <>
                 <label htmlFor="" className='title'>{type?.name || type}</label>
 
                 <div className="searchContainer">
@@ -190,6 +196,7 @@ const Lower =()=>{
                         <label htmlFor="">{t('allenamentoCompletato')}</label>
                     </button>}
                 </div>
+                </>}
             </motion.div>
         </main>
     );
