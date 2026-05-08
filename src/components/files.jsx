@@ -1,7 +1,7 @@
 import imp from '../assets/import.png'
 import view from '../assets/list-search.png'
 import exp from '../assets/export.png'
-import { exportAllExercises, getTypes, getExercises, addType, addExerciseDB } from '../db'
+import { exportAllExercises, getTypes, getExercises, addType, addExerciseDB, deleteType } from '../db'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useLang } from '../i18n.jsx'
@@ -20,6 +20,12 @@ const Files =()=>{
         try {
             const text = await file.text();
             const data = JSON.parse(text);
+
+            // Elimina tipi ed esercizi esistenti
+            const existingTypes = await getTypes();
+            for (const t of existingTypes) {
+                await deleteType(t.id);
+            }
 
             // Supporta sia il nuovo formato {types, exercises} che il vecchio (solo array)
             const importedTypes = data.types || [];
