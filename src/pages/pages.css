@@ -804,3 +804,17 @@ input{
     color: var(--text-primary);
     font-size: 14px;
 }
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--button-primary);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

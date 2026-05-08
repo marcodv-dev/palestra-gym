@@ -64,7 +64,7 @@ export default function Register() {
             className="button_aut"
             disabled={loading}
           >
-            {loading ? (t('loading') || 'Caricamento...') : (t('register') || 'Registrati')}
+            {loading ? <div className="spinner" /> : (t('register') || 'Registrati')}
           </button>
         </form>
 

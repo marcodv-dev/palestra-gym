@@ -66,7 +66,7 @@ export default function Login() {
             className="button_aut"
             disabled={loading}
           >
-            {loading ? (t('loading') || 'Caricamento...') : (t('login') || 'Accedi')}
+            {loading ? <div className="spinner" /> : (t('login') || 'Accedi')}
           </button>
         </form>
 
