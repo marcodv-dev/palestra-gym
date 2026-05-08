@@ -530,6 +530,7 @@
     flex: 1;
     overflow: auto;
     padding: 20px 0;
+    border: 1px solid red;
 }
 .viewPage{
     height: 100dvh;
