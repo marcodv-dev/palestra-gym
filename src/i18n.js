@@ -37,6 +37,7 @@ const translations = {
     esportaScheda: 'Esporta scheda corrente',
     importaNuovaScheda: 'Importa nuova scheda',
     lingua: 'Lingua',
+    allenamentoCompletato: 'Allenamento completato',
   },
   en: {
     tipo: 'Type',
@@ -76,6 +77,7 @@ const translations = {
     esportaScheda: 'Export current sheet',
     importaNuovaScheda: 'Import new sheet',
     lingua: 'Language',
+    allenamentoCompletato: 'Workout completed',
   }
 };
 

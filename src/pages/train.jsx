@@ -178,9 +178,14 @@ const Lower =()=>{
                 </DndContext>
 
                 <div className='fondo'/>
-                <button onClick={()=>navigate('/addExercise',{state:{tipo:type}})} style={{backgroundColor:'red'}} className='addButton'>
-                    <img src={add} alt="" />
-                </button>
+                <div className='train_buttons'>
+                    <button onClick={()=>navigate('/addExercise',{state:{tipo:type}})} className='addButton'>
+                        <img src={add} alt="" />
+                    </button>
+                    {exercises.some(e => e.done) && <button onClick={()=>{}} className='completatoButton true'>
+                        <label htmlFor="">{t('allenamentoCompletato')}</label>
+                    </button>}
+                </div>
             </motion.div>
         </main>
     );
