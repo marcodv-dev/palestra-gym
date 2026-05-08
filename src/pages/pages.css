@@ -530,7 +530,8 @@
     flex: 1;
     overflow: auto;
     padding: 20px 0;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
 }
 .viewPage{
     height: 100dvh;
