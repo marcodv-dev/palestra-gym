@@ -155,42 +155,43 @@ export const markExerciseDone = async (req, res) => {
 
     const exercise = exercises[0];
 
-    if (exercise.done) {
-      // Deseleziona: rimuovi l'ultimo workout_log e imposta done = FALSE
-      const [logs] = await pool.query(
-        'SELECT id FROM workout_logs WHERE exercise_id = ? ORDER BY done_at DESC LIMIT 1',
-        [id]
-      );
+    await pool.query(
+      'UPDATE exercises SET done = ? WHERE id = ?',
+      [!exercise.done, id]
+    );
 
-      if (logs.length > 0) {
-        await pool.query(
-          'DELETE FROM workout_logs WHERE id = ?',
-          [logs[0].id]
-        );
-      }
-
-      await pool.query(
-        'UPDATE exercises SET done = FALSE WHERE id = ?',
-        [id]
-      );
-
-      res.json({ message: 'Esercizio deselezionato', done: false });
-    } else {
-      // Seleziona: aggiungi log e imposta done = TRUE
-      await pool.query(
-        'INSERT INTO workout_logs (exercise_id) VALUES (?)',
-        [id]
-      );
-
-      await pool.query(
-        'UPDATE exercises SET done = TRUE WHERE id = ?',
-        [id]
-      );
-
-      res.json({ message: 'Esercizio completato', done: true });
-    }
+    res.json({ message: exercise.done ? 'Esercizio deselezionato' : 'Esercizio completato', done: !exercise.done });
   } catch (err) {
     console.error('Mark done error:', err);
+    res.status(500).json({ error: 'Errore del server' });
+  }
+};
+
+export const completeWorkout = async (req, res) => {
+  try {
+    const userId = req.userId;
+
+    const [doneExercises] = await pool.query(
+      'SELECT id FROM exercises WHERE user_id = ? AND done = TRUE',
+      [userId]
+    );
+
+    if (doneExercises.length === 0) {
+      return res.status(400).json({ error: 'Nessun esercizio completato' });
+    }
+
+    for (const ex of doneExercises) {
+      await pool.query('INSERT INTO workout_logs (exercise_id) VALUES (?)', [ex.id]);
+    }
+
+    await pool.query(
+      'UPDATE exercises SET done = FALSE WHERE user_id = ? AND done = TRUE',
+      [userId]
+    );
+
+    res.json({ message: 'Allenamento completato', count: doneExercises.length });
+  } catch (err) {
+    console.error('Complete workout error:', err);
     res.status(500).json({ error: 'Errore del server' });
   }
 };

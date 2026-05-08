@@ -6,7 +6,7 @@ import bin from '../assets/bin.png'
 import tick from '../assets/tick.png'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { deleteExercisesByType, deleteType, getExercisesOfType, updateExerciseDB, markExerciseDone } from "../db";
+import { deleteExercisesByType, deleteType, getExercisesOfType, updateExerciseDB, markExerciseDone, completeWorkout } from "../db";
 import { toast } from 'react-toastify';
 import { useLang } from '../i18n.jsx';
 import {
@@ -182,7 +182,11 @@ const Lower =()=>{
                     <button onClick={()=>navigate('/addExercise',{state:{tipo:type}})} className='addButton'>
                         <img src={add} alt="" />
                     </button>
-                    {exercises.some(e => e.done) && <button onClick={()=>{}} className='completedButton'>
+                    {exercises.some(e => e.done) && <button onClick={async ()=>{
+                        await completeWorkout();
+                        setExercises(exercises.map(e => ({...e, done: false})));
+                        toast.success(t('allenamentoCompletato'));
+                    }} className='completedButton'>
                         <label htmlFor="">{t('allenamentoCompletato')}</label>
                     </button>}
                 </div>

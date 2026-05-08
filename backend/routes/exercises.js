@@ -9,6 +9,7 @@ import {
   deleteExercise,
   deleteExercisesByType,
   markExerciseDone,
+  completeWorkout,
   getStats
 } from '../controllers/exerciseController.js';
 
@@ -25,5 +26,6 @@ router.put('/:id', updateExercise);
 router.delete('/:id', deleteExercise);
 router.delete('/type/:typeId', deleteExercisesByType);
 router.post('/:id/done', markExerciseDone);
+router.post('/complete', completeWorkout);
 
 export default router;

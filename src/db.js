@@ -129,6 +129,14 @@ export const markExerciseDone = async (id) => {
   return handleResponse(res);
 };
 
+export const completeWorkout = async () => {
+  const res = await fetch(`${API}/exercises/complete`, {
+    method: 'POST',
+    headers: authHeader()
+  });
+  return handleResponse(res);
+};
+
 export const getTotalWorkouts = async () => {
   const data = await getStats();
   return data.total_workouts;
