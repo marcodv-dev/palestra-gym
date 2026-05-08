@@ -182,7 +182,7 @@ const Lower =()=>{
                     <button onClick={()=>navigate('/addExercise',{state:{tipo:type}})} className='addButton'>
                         <img src={add} alt="" />
                     </button>
-                    {exercises.some(e => e.done) && <button onClick={()=>{}} className='completatoButton true'>
+                    {exercises.some(e => e.done) && <button onClick={()=>{}} className='completedButton'>
                         <label htmlFor="">{t('allenamentoCompletato')}</label>
                     </button>}
                 </div>

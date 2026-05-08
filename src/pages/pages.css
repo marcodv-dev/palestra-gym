@@ -337,11 +337,15 @@
     bottom: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
 }
-.addButton{
+.train_buttons{
     position: absolute;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 40px;
+    display: flex;
+    gap: 20px;
+}
+.addButton{
     display: flex;
     flex-direction: column;
     outline: none;
@@ -357,6 +361,24 @@
         width: 30px;
         margin: auto;
         filter: invert(1);
+    }
+}
+.completedButton{
+    padding: 15px;
+    display: flex;
+    outline: none;
+    border-radius: 10em;
+    transition: 0.2s all ease;
+    -webkit-tap-highlight-color: transparent;
+    background: linear-gradient(to left, var(--accent), var(--accent2));
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    >label{
+        font-family: "Audiowide", sans-serif;
+        margin: auto;
+        text-transform: capitalize;
+        color: var(--button-primary);
+        font-size: 18px;
     }
 }
 
@@ -688,14 +710,11 @@ input{
   .tipoAllenamentoButton:hover,
   .aggiungiButton:hover,.modificaButton:hover,.done:hover,
   .completatoButton:hover,.buttonFiles:hover,.logout:hover,
-  .button_aut:hover, .button_aut_nav:hover{
+  .button_aut:hover, .button_aut_nav:hover,.addButton:hover{
     transform: scale(1.05);
   }
   .aggiungiButton.disabled:hover{
     transform: scale(1);
-  }
-  .addButton:hover{
-    transform: translateX(-50%) scale(1.05);
   }
 }
 
